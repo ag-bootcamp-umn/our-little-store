@@ -10,24 +10,63 @@ const widget3 = new Product("Widget 8000", 100, 10)
 
 const currentStore = new Store("my-little-store", 9, 16, [widget1, widget2, widget3] )
 
+
+
+
+function welcomeShopper() {
+  // welcome
+  // listo f items
+  // calls method customer.buyItem
+  // log out customer & porduct 
+}
+
 // Use inquirer to welcome the use to the store, and show a list of products for then to choose from
 function start(){
 
+inquirer.prompt([
+  {
+    type: 'list',
+    message: 'Welcome to My Little Store, what do you want?',
+    choices: [widget1, widget2, widget3],
+    name: 'purchase'
+  }
+])
+.then( res => {
+  buyProduct(res.product);
+})
 }
 
 // after the customer chooses a product, get their name
 // create a customer object; add customer to the shoppers club
 // use the buy method so the user buy the product 
 // send them back to the start menu
-function buyProduct(){
-
+function buyProduct(prod){
+  inquirer.prompt([
+    {
+      type: 'input',
+      message: 'Enter your name',
+      name: 'customerName'
+    }
+  ])
+  .then( res => {
+    const shopper = new Customer(res.customerName);
+    currentStore.addShopper(shopper);
+    shopper.buyProduct(prod);
+    return shopper;
+  })
+  .then(shopper => {
+    console.log(shopper, currentStore)
+  })
+  .catch( err => {
+    console.log(err.message);
+  });
 }
 
 
 
-// start()
+start()
 
-const nathan = new Customer('Nathan');
-console.log(nathan);
-nathan.buyProduct(currentStore, widget1);
-console.log(nathan);
+// const nathan = new Customer('Nathan');
+// console.log(nathan);
+// nathan.buyProduct(currentStore, widget1);
+// console.log(nathan);
