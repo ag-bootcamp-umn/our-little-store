@@ -1,0 +1,47 @@
+In this activity, you are managing an online store. To do this, you will need three Classes:
+
+  Store     - for the Store itself 
+  Product   - for each type of product sold 
+  Customer  - for the customers who place orders 
+
+The Store class should have these properties:
+
+  name                  the name of the store
+  opens                 what time the store opens
+  closes                what time the store closes 
+  inventory = []        an array of products available in the store
+  shoppersClub = [];    an array of customers who order stuff 
+
+and these methods:
+
+  displayWelcome()      console.logs a welcome message w/ name of the store
+  areYouOpen(hour)      if the hour passed in is between the open time and the close time, 
+                        return true; otherwise false 
+  addProduct(prod)      adds the product object passed in to the store inventory 
+  addShopper(shopper)   adds a customer object passed in to the shoppers club array
+
+
+The Product class will have these properties:
+
+  name
+  price
+  qty
+
+and these methods:
+
+  reduceQty()         subtracts 1 from the qty for that product
+  givePrice()         returns the price for that product  
+
+
+The Customer class will have these properties:
+
+  name                name of the customer
+  productsPurchased   an array of products purchased by this customer 
+  amountSpent         total dollar amount spent by this customer 
+
+and this method:
+
+  buyProduct(store, product)      accepts a store object and a product object.
+                                  adds the product object to the productsPurchased array 
+                                  reduces the qty of the product by one 
+                                  adds the price of the product to the amount spent by the user
