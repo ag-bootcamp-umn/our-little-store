@@ -5,7 +5,7 @@ describe("Store", () => {
   describe("Instantiation", () => {
     it("should instantiate correctly", () => {
       // TODO: make sure an object is instantiated
-      const myLittleStore = new Store('My Little Store', 9, 3, [{name: "Apples"}]);
+      const myLittleStore = new Store('My Little Store', 9, 3);
       expect(myLittleStore).toBeInstanceOf(Store);
     })
   })
@@ -13,7 +13,7 @@ describe("Store", () => {
   describe("Name property", () => {
     it("should set the name property correctly", () => {
       // TODO (see "it" statement )
-      const myLittleStore = new Store('My Little Store', 9, 3, [{name: "Apples"}]);
+      const myLittleStore = new Store('My Little Store', 9, 3);
       expect(myLittleStore.name).toEqual('My Little Store');
     })
   })
@@ -22,7 +22,7 @@ describe("Store", () => {
     it("should add a product to inventory correctly", () => {
       // TODO (see "it" statement )
       const product = {name: "oranges"};
-      const myLittleStore = new Store('My Little Store', 9, 3, [{name: "Apples"}]);
+      const myLittleStore = new Store('My Little Store', 9, 3);
       myLittleStore.addProduct(product);
       expect(myLittleStore.inventory).toContain(product);
     })
